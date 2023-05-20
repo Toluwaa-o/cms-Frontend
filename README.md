@@ -13,6 +13,7 @@ Functionalities:
 * Stats section containing stats about reports including a graph of reports from the last months
 * Profile page where users can view their information and edit their information
 * Logout button that allows users to logout
+* and many more.....
 
 Links:
 
