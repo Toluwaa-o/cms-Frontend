@@ -1,0 +1,1501 @@
+/*
+  1. Use a more-intuitive box-sizing model.
+*/
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+/*
+  2. Remove default margin
+*/
+* {
+  margin: 0;
+}
+/*
+  3. Allow percentage-based heights in the application
+*/
+html, body {
+  height: auto;
+}
+/*
+  Typographic tweaks!
+  4. Add accessible line-height
+  5. Improve text rendering
+*/
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+/*
+  6. Improve media defaults
+*/
+img, picture, video, canvas, svg {
+  display: block;
+  max-width: 100%;
+}
+/*
+  7. Remove built-in form typography styles
+*/
+input, button, textarea, select {
+  font: inherit;
+}
+/*
+  8. Avoid text overflows
+*/
+p, h1, h2, h3, h4, h5, h6 {
+  overflow-wrap: break-word;
+}
+/*
+  9. Create a root stacking context
+*/
+#root, #__next {
+  isolation: isolate;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap');
+
+:root {
+  --darkBlue: #34495E;
+  --white: #ECF0F1;
+  --lightBlue: #3498DB;
+}
+
+/* loader */
+.loader {
+  color: #34495e;
+  font-size: 90px;
+  text-indent: -9999em;
+  overflow: hidden;
+  width: 1em;
+  height: 1em;
+  border-radius: 50%;
+  margin: 72px auto;
+  position: relative;
+  -webkit-transform: translateZ(0);
+  -ms-transform: translateZ(0);
+  transform: translateZ(0);
+  -webkit-animation: load6 1.7s infinite ease, round 1.7s infinite ease;
+  animation: load6 1.7s infinite ease, round 1.7s infinite ease;
+}
+@-webkit-keyframes load6 {
+  0% {
+    box-shadow: 0 -0.83em 0 -0.4em, 0 -0.83em 0 -0.42em, 0 -0.83em 0 -0.44em, 0 -0.83em 0 -0.46em, 0 -0.83em 0 -0.477em;
+  }
+  5%,
+  95% {
+    box-shadow: 0 -0.83em 0 -0.4em, 0 -0.83em 0 -0.42em, 0 -0.83em 0 -0.44em, 0 -0.83em 0 -0.46em, 0 -0.83em 0 -0.477em;
+  }
+  10%,
+  59% {
+    box-shadow: 0 -0.83em 0 -0.4em, -0.087em -0.825em 0 -0.42em, -0.173em -0.812em 0 -0.44em, -0.256em -0.789em 0 -0.46em, -0.297em -0.775em 0 -0.477em;
+  }
+  20% {
+    box-shadow: 0 -0.83em 0 -0.4em, -0.338em -0.758em 0 -0.42em, -0.555em -0.617em 0 -0.44em, -0.671em -0.488em 0 -0.46em, -0.749em -0.34em 0 -0.477em;
+  }
+  38% {
+    box-shadow: 0 -0.83em 0 -0.4em, -0.377em -0.74em 0 -0.42em, -0.645em -0.522em 0 -0.44em, -0.775em -0.297em 0 -0.46em, -0.82em -0.09em 0 -0.477em;
+  }
+  100% {
+    box-shadow: 0 -0.83em 0 -0.4em, 0 -0.83em 0 -0.42em, 0 -0.83em 0 -0.44em, 0 -0.83em 0 -0.46em, 0 -0.83em 0 -0.477em;
+  }
+}
+@keyframes load6 {
+  0% {
+    box-shadow: 0 -0.83em 0 -0.4em, 0 -0.83em 0 -0.42em, 0 -0.83em 0 -0.44em, 0 -0.83em 0 -0.46em, 0 -0.83em 0 -0.477em;
+  }
+  5%,
+  95% {
+    box-shadow: 0 -0.83em 0 -0.4em, 0 -0.83em 0 -0.42em, 0 -0.83em 0 -0.44em, 0 -0.83em 0 -0.46em, 0 -0.83em 0 -0.477em;
+  }
+  10%,
+  59% {
+    box-shadow: 0 -0.83em 0 -0.4em, -0.087em -0.825em 0 -0.42em, -0.173em -0.812em 0 -0.44em, -0.256em -0.789em 0 -0.46em, -0.297em -0.775em 0 -0.477em;
+  }
+  20% {
+    box-shadow: 0 -0.83em 0 -0.4em, -0.338em -0.758em 0 -0.42em, -0.555em -0.617em 0 -0.44em, -0.671em -0.488em 0 -0.46em, -0.749em -0.34em 0 -0.477em;
+  }
+  38% {
+    box-shadow: 0 -0.83em 0 -0.4em, -0.377em -0.74em 0 -0.42em, -0.645em -0.522em 0 -0.44em, -0.775em -0.297em 0 -0.46em, -0.82em -0.09em 0 -0.477em;
+  }
+  100% {
+    box-shadow: 0 -0.83em 0 -0.4em, 0 -0.83em 0 -0.42em, 0 -0.83em 0 -0.44em, 0 -0.83em 0 -0.46em, 0 -0.83em 0 -0.477em;
+  }
+}
+@-webkit-keyframes round {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@keyframes round {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+/* loader */
+
+body {
+  max-width: 100vw;
+  min-height: 100vh;
+  font-family: 'Inter', sans-serif;
+}
+
+header {
+  display: flex;
+  background: var(--darkBlue);
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1em;
+  position: relative;
+  max-height: 12vh;
+}
+
+header img {
+  width: 80px;
+}
+
+header svg{
+  fill: var(--white);
+}
+
+header nav {
+  position: absolute;
+  background: var(--darkBlue);
+  top: 13vh;
+  left: 1em;
+  width: 90%;
+  padding: 1.5em;
+  border-radius: 8px;
+  z-index: 2;
+}
+
+.navIn {
+  animation: fadein 1s linear;
+  transform: translateY(0vh);
+}
+
+.navOut {
+  animation: fadeOut 1s linear;
+  transform: translateY(-100vh);
+}
+
+
+@keyframes fadein {
+  0% {
+    transform: translateY(-100vh);
+    opacity: 0;
+  }
+
+  50% {
+    transform: translateY(-50vh);
+    opacity: 0.5;
+  }
+
+  100% {
+    transform: translateY(0vh);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  0% {
+    transform: translateY(0vh);
+    opacity: 1;
+  }
+
+  50% {
+    transform: translateY(-50vh);
+    opacity: 0.5;
+  }
+
+  100% {
+    transform: translateY(-100vh);
+    opacity: 0;
+  }
+}
+
+header ul {
+  padding: 0;
+  list-style: none;
+}
+
+header li {
+  padding-bottom: 1em;
+}
+
+header a {
+  color: var(--white);
+  display: flex;
+  gap: .5em;
+  text-transform: uppercase;
+  font-weight: 500;
+  font-size: .9em;
+  letter-spacing: 1px;
+  align-items: center;
+  text-decoration: none;
+}
+
+.login {
+  padding: 2em;
+  display: grid;
+  place-content: center;
+  height: 100vh;
+  gap: 1.5em;
+  background: linear-gradient(to bottom, var(--darkBlue), var(--lightBlue));
+}
+
+.forgotten {
+  padding: 1em;
+  display: grid;
+  place-content: center;
+  height: 100vh;
+  gap: 1.5em;
+  background: linear-gradient(to bottom, var(--darkBlue), var(--lightBlue));
+}
+
+.register {
+  padding: 1em;
+  display: grid;
+  place-content: center;
+  min-height: 100vh;
+  background: linear-gradient(to bottom, var(--darkBlue), var(--lightBlue));
+}
+
+.profile {
+  padding: 1em;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.register p {
+  padding-bottom: 1em;
+  color: rgb(253, 95, 121);
+  font-weight: 700;
+}
+
+.login > img{
+  width: 70%;
+  margin: auto;
+}
+
+.forgotten > img{
+  width: 50%;
+  margin: auto;
+}
+
+.login > form, .register > form, .forgotten > form {
+  padding: 2em 1.5em;
+  border-radius: 10px;
+  display: flex;
+  background: var(--white);
+  flex-direction: column;
+}
+
+.profile > form {
+  padding: 2em 1.5em;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+.login label, .register label, .profile label, .forgotten label {
+  display: block;
+  padding-bottom: .3em;
+  font-weight: 700;
+  color: var(--darkBlue);
+}
+
+.login input, .register input[type='text'], .register input[type='password'], .register input[type='tel'], .register input[type='email'], .profile input[type='text'], .profile input[type='tel'], .profile input[type='email'], .forgotten input {
+  background: transparent;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-bottom: 2px solid var(--darkBlue);
+  outline: none;
+  border-radius: 5px;
+  padding: .5em;
+  box-sizing: border-box;
+  width: 100%;
+  margin-bottom: 1.5em;
+  color: var(--darkBlue);
+}
+
+.login input::placeholder, .register input::placeholder, .profile input::placeholder, .forgotten input::placeholder {
+  color: gray;
+  opacity: .5;
+}
+
+.login button, .register button, .profile button, .forgotten button {
+  border: 1px solid white;
+  width: 80%;
+  margin: auto;
+  margin-top: 1em;
+  color: var(--white);
+  font-weight: 700;
+  text-transform: uppercase;
+  padding: .4em;
+  border-radius: 5px;
+  margin-bottom: 1.5em;
+}
+
+.error-message {
+  text-transform: uppercase;
+  font-size: .8em;
+  font-weight: 700;
+  text-align: center;
+  color: rgb(245, 52, 52);
+}
+
+.register h2 {
+  color: var(--darkBlue);
+  margin-bottom: .5em;
+}
+
+.profile h2 {
+  color: var(--darkBlue);
+  margin-bottom: 1em;
+}
+
+.login form p:last-child, .register form p:last-child, .forgotten form p:last-child {
+  text-transform: uppercase;
+  font-size: .8em;
+  font-weight: 700;
+  text-align: center;
+  color: var(--darkBlue);
+}
+
+.login form div, .register form div, .forgotten form div {
+  position: relative;
+}
+
+.login form div svg, .register form div svg, .forgotten form div svg {
+  position: absolute;
+  right: .5em;
+  bottom: 2em;
+}
+
+.login form a, .register form a, .forgotten form a {
+  text-decoration: none;
+  color: var(--lightBlue);
+}
+
+.checkbox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1em;
+}
+
+.unverified {
+  display: flex;
+  padding: 1em;
+  justify-content: space-between;
+  box-shadow: 0px 0px 5px 1px gray;
+}
+
+.unverified h3 {
+  color: var(--darkBlue);
+  text-transform: uppercase;
+}
+
+.unverified p {
+  font-weight: 700;
+  color: gray;
+}
+
+.unverified > div:last-child {
+  display: flex;
+  gap: 1em;
+}
+
+.unverified > div > span {
+  display: grid;
+  height: 50px;
+  width: 50px;
+  place-content: center;
+  border-radius: 50%;
+  fill: white;
+}
+
+input.o-checkbox {
+  width: 20px;
+  height: 20px;
+}
+
+.reports {
+  padding: 1em;
+}
+
+main h2 {
+  color: var(--darkBlue);
+}
+
+.reports-top, .officers-top {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: .5em;
+  padding: .5em;
+}
+
+.officers-top {
+  text-transform: uppercase;
+  padding-left: 1em;
+}
+
+.showFilter {
+  opacity: 1;
+  animation: filterIn 1s linear;
+  height: fit-content;
+}
+
+.hideFilter {
+  opacity: 0;
+  height: 0;
+  display: none;
+  animation: filterOut .7s linear;
+}
+
+.reports > svg {
+  margin: auto;
+  margin-bottom: 1em;
+  position: relative;
+  animation: float 2s ease infinite;
+  background: transparent;
+  box-shadow: 0px 9px 5px -5px gray;
+}
+
+@keyframes float {
+  0% {
+    top: -.3em
+  }
+
+  50% {
+    top: 0
+  }
+
+  100% {
+    top: .3em
+  }
+}
+
+@keyframes filterIn {
+  0% {
+    height: 0px;
+    opacity: 0;
+  }
+
+  1% {
+    height: 0px;
+    opacity: 1;
+  }
+
+  50% {
+    height: 125px;
+    opacity: 1;
+  }
+
+  100% {
+    height: fit-content;
+    opacity: 1;
+  }
+}
+
+@keyframes filterOut {
+  0% {
+    height: fit-content;
+    opacity: 1;
+  }
+
+  50% {
+    height: 125px;
+    opacity: 1;
+  }
+
+  100% {
+    height: 0px;
+    opacity: 0;
+  }
+}
+
+.reports-top a, .officers-top p {
+  display: flex;
+  background-color: green;
+  color: var(--white);
+  text-transform: uppercase;
+  font-size: .8em;
+  align-self: center;
+  justify-content: center;
+  padding: .5em .7em;
+  border-radius: 5px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.reports-top svg, .officers-top svg {
+  fill: var(--white);
+}
+
+.reports-middle {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  margin-bottom: 1em;
+  padding: 1em;
+  box-shadow: 1px 0px 5px 0px gray;
+  overflow: hidden;
+}
+
+.reports-middle select {
+  width: 100%;
+  outline: none;
+  border-radius: 5px;
+  border: 1px solid var(--darkBlue);
+  padding: .3em .5em;
+  color: var(--darkBlue);
+}
+
+.reports-middle button {
+  background: var(--lightBlue);
+  border: none;
+  color: white;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  padding: .3em;
+  border-radius: 5px;
+}
+
+.reports-middle > div {
+  display: flex;
+  gap: .3em;
+  align-items: center;
+}
+
+.reports-middle label {
+  color: var(--darkBlue);
+  font-weight: 700;
+  padding-right: .3em;
+}
+
+.officers-middle {
+  padding: 1em;
+  display: flex;
+  align-items: center;
+  gap: .5em;
+}
+
+.officers-middle > input {
+  border: 1px solid var(--darkBlue);
+  outline: none;
+  padding: .3em .5em;
+  border-radius: 4px;
+}
+
+.officers-middle > button {
+  border-radius: 4px;
+  border: 1px solid var(--darkBlue);
+  background: var(--darkBlue);
+  color: white;
+  padding: .3em .5em;
+  font-weight: 500;
+}
+
+.reports-middle > div > input, .officers > div > input {
+  border: 1px solid var(--darkBlue);
+  padding: .5em;
+  border-radius: 5px;
+}
+
+main thead {
+  background: var(--darkBlue);
+  color: var(--white);
+}
+
+main table, th, td {
+  border: 1px solid #34495e80;
+}
+
+main th, td {
+  padding: .5em;
+}
+
+main table {
+  border-collapse: collapse;
+}
+
+main td a {
+  background: green;
+  color: white;
+  text-decoration: none;
+  padding: .3em 1em;
+  font-weight: 700;
+  border-radius: 4px;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  gap: 1em;
+  color: white;
+  margin-block: 1.5em 1em;
+}
+
+.pagination > p {
+  width: 30px;
+  height: 30px;
+  display: grid;
+  place-content: center;
+  border-radius: 5px;
+}
+
+.expanded-report, .officer {
+  padding: 1em;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+
+.officer h2 {
+  font-size: 1.3em;
+}
+
+.expanded-report span, .expanded-report h3 {
+  color: var(--darkBlue);
+  font-weight: 700;
+}
+
+.expanded-report h3 {
+  margin-bottom: 1em;
+}
+
+.officer span {
+  color: var(--darkBlue);
+  font-weight: 700;
+}
+
+.officer p {
+  font-weight: 500;
+}
+
+.expanded-report > div > p {
+  margin-bottom: 1em;
+  font-weight: 500;
+}
+
+.expanded-report  div span div{
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 70%;
+  gap: 1em;
+  overflow-X: scroll;
+  margin-top: .5em;
+}
+
+.expanded-report > a:first-child {
+  position: absolute;
+  top: 1.5em;
+  right: 1em;
+  color: white;
+  background: var(--darkBlue);
+  text-decoration: none;
+  font-weight: 700;
+  padding: .2em .5em;
+  border-radius: 5px;
+}
+
+.expanded-report > a:last-child {
+  background: green;
+  text-decoration: none;
+  color: white;
+  text-align: center;
+  padding: .5em 2em;
+  border-radius: 5px;
+  margin: auto;
+  font-weight: 500;
+}
+
+.stats {
+  padding: 1em;
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+
+.stat-count {
+  overflow-x: scroll;
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 43%;
+  gap: .5em;
+  padding: 1em 0;
+  margin-bottom: 2em;
+}
+
+.stats > .stat-count > a {
+  padding: 1em;
+  font-weight: 500;
+  display: grid;
+  grid-template-columns: 40% 60%;
+  align-items: center;
+  border-radius: 20px;
+  text-decoration: none;
+}
+
+.dialogue, .error-box {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: grid;
+  place-content: center;
+}
+
+.dialogue > span, .error-box > span {
+  background: white;
+  padding: 2em;
+  max-width: 80%;
+  margin: auto;
+  border-radius: 7px;
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  justify-content: center;
+  align-items: center;
+}
+
+.dialogue > span > p {
+  color: var(--darkBlue);
+  font-weight: 700;
+  font-size: 1.1em;
+}
+
+.error-box > span > p {
+  color: rgb(243, 40, 40);
+  font-weight: 700;
+  font-size: 1.1em;
+}
+
+
+.dialogue > span > span {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  gap: 1em;
+  width: 100%;
+  justify-content: center;
+}
+
+.dialogue span span p {
+  color: white;
+  width: 100%;
+  text-align: center;
+  padding: .3em 1em;
+  font-weight: 700;
+  letter-spacing: 1px;
+  border-radius: 5px;
+  text-transform: uppercase;
+}
+
+.stats p {
+  font-size: .9em;
+  letter-spacing: 1px;
+}
+
+.stats h3 {
+  font-size: 1.2em;
+}
+
+.barChart {
+  overflow-x: scroll;
+  padding: 0;
+}
+
+.barChart > div {
+  position: relative;
+  left: -1.5em;
+}
+
+.create-report, .edit-report {
+  padding: 1.5em;
+  position: relative;
+}
+
+.create-report a, .edit-report a {
+  position: absolute;
+  top: 1.5em;
+  right: 1em;
+  color: white;
+  background: var(--darkBlue);
+  text-decoration: none;
+  font-weight: 700;
+  padding: .2em .5em;
+  border-radius: 5px;
+}
+
+.create-report h2, .edit-report h2 {
+  text-transform: uppercase;
+  margin-bottom: 1em;
+}
+
+.create-report form, .edit-report form {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+}
+
+.create-report label, .edit-report label {
+  display: block;
+  margin-bottom: .5em;
+  color: var(--darkBlue);
+  font-weight: 700;
+}
+
+.forImage {
+  padding: .3em;
+  display: flex;
+  border: 1px solid gray;
+  border-radius: 5px;
+  min-height: 150px;
+}
+
+.create-report > form > div > div, .edit-report > form > div > div {
+  width: 80px;
+  position: relative;
+  height: 80px;
+}
+
+.create-report > form > div > div > svg, .edit-report > form > div > div > svg {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.create-report input[type='text'], .edit-report input[type='text'] {
+  border: none;
+  border-bottom: 2px solid gray;
+  margin-bottom: 1.5em;
+  box-sizing: border-box;
+  padding: .5em 0;
+  outline: none;
+  width: 100%;
+}
+
+.create-report select, .create-report input[type='file'], .create-report textarea, .edit-report select, .edit-report input[type='file'], .edit-report textarea {
+  margin-bottom: 1.5em;
+  outline: none;
+}
+
+.create-report select, .create-report textarea, .edit-report select, .edit-report textarea {
+  border: 1px solid gray;
+  box-sizing: border-box;
+  padding: .5em;
+  border-radius: 5px;
+  outline: none;
+}
+
+.response {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  display:grid;
+  place-content: center;
+  background: rgba(0, 0, 0, 0.541);
+}
+
+.response > form {
+  background: white;
+  padding: 1em 1.5em;
+  width: 90vw;
+  border-radius: 8px;
+  max-width: 370px;
+}
+
+.response > form > span > button, .response > form > span > p {
+  border: none;
+  width: 100%;
+  margin: auto;
+  margin-top: 1em;
+  color: var(--white);
+  font-weight: 700;
+  text-transform: uppercase;
+  padding: .4em;
+  text-align: center;
+  border-radius: 5px;
+  margin-bottom: 1.5em;
+}
+
+.response span {
+  display: flex;
+  align-items: center;
+  gap: 1em;
+}
+
+.create-report textarea, .edit-report textarea {
+  width: 100%;
+  height: 100px;
+}
+
+.create-report button, .edit-report > form > div > button {
+  border: none;
+  width: 80%;
+  margin: auto;
+  margin-top: 1em;
+  color: var(--white);
+  font-weight: 700;
+  text-transform: uppercase;
+  padding: .4em;
+  border-radius: 5px;
+  margin-bottom: 1.5em;
+}
+
+.add-response {
+  color: white;
+  background: var(--darkBlue);
+  text-align: center;
+  width: 50%;
+  margin: auto;
+  padding: .3em;
+  border-radius: 5px;
+}
+
+.officer-groups {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+}
+
+.officer-groups > p {
+  display: flex;
+  text-align: center;
+  align-items: center;
+  font-weight: 700;
+  padding: .3em;
+  margin-bottom: 1em;
+}
+
+.officer-groups > p:first-child {
+  color: green;
+  padding-right: 2em;
+}
+
+.officer-groups > p:last-child {
+  color: red;
+  padding-left: 2em;
+}
+
+.error-page {
+  background: var(--lightBlue);
+  max-width: 100vw;
+  min-height: 100vh;
+  display: grid;
+  place-content: center;
+  color: white;
+  text-align: center;
+  gap: .5em;
+}
+
+.error-page * {
+  margin-inline: auto;
+}
+
+.error-page > h2 {
+  font-size: 2em;
+}
+
+.error-page > p {
+  width: 70vw;
+  letter-spacing: 1px;
+}
+
+.error-page > a {
+  padding: .4em 2em;
+  border: 2px solid white;
+  color: white;
+  font-weight: 700;
+  font-size: .9em;
+  text-transform: uppercase;
+  text-decoration: none;
+  margin-top: 1em;
+  border-radius: 4px;
+}
+
+.popup {
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+}
+
+.popup > span{
+  background: rgba(9, 194, 9, 0.849);
+  color: white;
+  font-weight: 700;
+  max-width: 70vw;
+  position: absolute;
+  letter-spacing: 1px;
+  top: 3em;
+  right: 0;
+  left: 0;
+  margin: auto;
+  display: flex;
+  text-transform: uppercase;
+  align-items: center;
+  justify-content: center;
+  padding: 1em 2em;
+  gap: 1em;
+  border-radius: 5px;
+}
+
+@media (min-width: 450px) {
+  .popup > span {
+    width: 40%;
+  }
+
+  .officers h2 {
+    font-size: 2em;
+    padding-left: 1em;
+  }
+
+  .officers form {
+    justify-content: center;
+  }
+  
+  main th, td {
+    text-align: center;
+  }
+  
+  main table {
+    margin: auto;
+    width: 100%;
+  }
+
+  .stat-count {
+    grid-auto-columns: 24%;
+    font-size: 1.2em;
+  }
+
+  .profile button {
+    max-width: 50%;
+  }
+}
+
+@media (min-width: 768px) {
+  .main {
+    display: grid;
+    min-height: 100vh;
+    grid-template-columns: 15% 85%;
+  }
+
+  header {
+    flex-direction: column;
+    max-height: unset;
+    height: 100%;
+    justify-content: flex-start;
+    gap: 2em;
+  }
+
+  header img {
+    width: 200px;
+  }
+
+  header nav {
+    position: unset;
+    top: unset;
+    left: unset;
+    right: unset;
+    height: unset;
+    background: unset;
+    width: unset;
+    padding: 0;
+    z-index: inherit;
+  }
+
+  header > svg, header > nav > svg {
+    display: none;
+  }
+  
+  .navIn, .navOut {
+    animation: none;
+    transform: translateY(0vh);
+  }
+
+  header ul {
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
+  }
+
+  header li {
+    padding: 0;
+  }
+
+  header a {
+    font-size: 1em;
+    color: rgb(180, 177, 177);
+  }
+
+  header .active {
+    color: white;
+  }
+
+  header svg {
+    fill: rgb(180, 177, 177);
+  }
+
+  header .active svg {
+    fill: white;
+  }
+
+  .reports-top a, .officers-top p {
+    font-size: 1.1em;
+    align-items: center;
+  }
+  
+  .hideFilter, .showFilter {
+    opacity: 1;
+    height: fit-content;
+    display: grid;
+    animation: none;
+  }
+
+  .reports >  svg {
+    display: none;
+  }
+
+  .reports-middle {
+    grid-template-columns: 30% 30% 30%;
+    box-shadow: none;
+  }
+
+  .reports-middle > div {
+    grid-area: 2/1/3/3;
+    font-size: 1.1em;
+  }
+
+  .reports-middle input {
+    width: 100%;
+  }
+
+  .reports-middle select {
+    padding: .5em;
+  }
+
+  .expanded-report {
+    display: grid;
+    padding: 2em;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: auto auto;
+  }
+
+  .expanded-report h3 {
+    font-size: 1.7em;
+  }
+
+  .expanded-report > div {
+    font-size: 1.1em;
+  }
+
+  .expanded-report > div:nth-child(3) {
+    grid-area: 2/1/3/2;
+  }
+
+  .expanded-report > div:nth-child(4) {
+    background: var(--darkBlue);
+    color: white;
+    border-radius: 10px;
+    position: relative;
+    top: 3em;
+    padding: 2em;
+  }
+
+  .expanded-report > div:nth-child(4) > h2 {
+    color: white;
+    padding-bottom: 1em;
+  }
+
+  .expanded-report span {
+    color: unset;
+  }
+
+  .expanded-report > div:nth-child(1) span, .expanded-report > div:nth-child(2) span, .expanded-report > div:nth-child(3) span {
+    color: var(--darkBlue);
+  }
+
+  .expanded-report > div:nth-child(4) span {
+    border-bottom: 2px solid white;
+  }
+
+  .expanded-report > a:first-child {
+    font-size: 1.1em;
+    padding: .3em 1em;
+  }
+
+  .expanded-report  div span div {
+    grid-auto-columns: 40%;
+  }
+
+  .expanded-report > a:last-child {
+    font-size: 1.2em;
+    padding: .7em 3em;
+    position: absolute;
+    bottom: 1em;
+    right: 2em;
+  }
+
+  .officers {
+    padding: 2em;
+  }
+
+  .officer-groups > p {
+    font-size: 1.2em;
+    gap: .5em;
+  }
+
+  .unverified {
+    box-shadow: unset;
+  }
+
+  .unverified {
+    border-bottom: 1px solid var(--darkBlue);
+  }
+
+  .unverified p {
+    font-size: 1.1em;
+  }
+
+  .officers-middle > input {
+    padding: .4em 1em;
+    width: 30vw;
+  }
+
+  .officers-middle > button {
+    font-size: 1.1em;
+    padding: .3em 1em;
+  }
+
+  .stats {
+    padding: 2em;
+  }
+
+  .stat-count {
+    overflow-x: unset;
+    grid-auto-columns: 23%;
+    gap: 1em;
+  }
+
+  .stats > .stat-count > a {
+    display: flex;
+    gap: .5em;
+    justify-content: center;
+    min-height: 170px;
+    font-size: 1.3em;
+  }
+
+  .profile { 
+    padding-inline: 3em;
+  }
+
+  .profile h2 {
+    font-size: 1.8em;
+  }
+
+  .profile label, .profile input {
+    font-size: 1.2em;
+  }
+
+  .profile input[type='text'], .profile input[type='tel'], .profile input[type='email'] {
+    width: 70%;
+    border-radius: 0;
+  }
+
+  .profile button {
+    font-size: 1.1em;
+    width: 40%;
+    padding: .7em;
+  }
+
+  main th, td {
+    font-size: 1.1em;
+  }
+
+  .create-report a, .edit-report a {
+    font-size: 1.1em;
+    padding-inline: 1em;
+  }
+
+  .create-report h2, .edit-report h2 {
+    font-size: 1.8em;
+  }
+
+  .create-report label, .edit-report label {
+    font-size: 1.2em;
+    margin-bottom: 0;
+  }
+
+  .create-report input[type='text'], .edit-report input[type='text'], .create-report select, .create-report input[type='file'], .edit-report select, .edit-report input[type='file'] {
+    font-size: 1.2em;
+    width: 70%;
+  }
+
+  .create-report textarea, .edit-report textarea {
+    font-size: 1.2em;
+    width: 80%;
+    height: 150px;
+  }
+
+  .edit-report > form > div {
+    display: flex;
+    align-items: center;
+    max-width: 70%;
+    gap: 2em;
+    text-transform: uppercase;
+    font-weight: 700;
+  }
+
+  .create-report button, .edit-report > form > div > button {
+    padding: .5em;
+    font-size: 1.1em;
+    width: 50%;
+    margin: 0;
+  }
+
+  .add-response {
+    font-size: 1.1em;
+    padding: .5em ;
+  }
+
+  .response > form {
+    max-width: unset;
+    width: 45vw;
+  }
+
+  .response h2 {
+    text-align: center;
+  }
+
+  .response textarea {
+    width: 100%;
+  }
+
+  .response > form > span > button, .response > form > span > p {
+    padding-block: .8em;
+  }
+
+  .officer {
+    padding: 2em;
+  }
+
+  .officer h2 {
+    font-size: 2em;
+  }
+
+  .officer p {
+    font-size: 1.2em;
+  }
+
+  .popup > span {
+    width: 35%;
+  }
+
+  .login, .forgotten {
+    grid-template-columns: 50% 50%;
+  }
+
+  .login > img, .forgotten > img {
+    width: 450px;
+  }
+
+  .login > form, .forgotten > form {
+    width: 70%;
+    padding: 2em;
+    font-size: 1.2em;
+  }
+
+  .login p, .forgotten p {
+    text-align: center;
+  }
+
+  .login input, .forgotten input {
+    border-radius: 0;
+  }
+
+  .register form {
+    gap: 1em;
+    padding: 2em;
+    display: grid;
+    width: 52vw;
+    margin: 0;
+    grid-template-columns: 50% 50%;
+  }
+
+  .register h2 {
+    grid-area: 1/1/2/3;
+  }
+
+  .register-instructions {
+    grid-area: 2/1/3/3;
+    font-size: 1.1em;
+  }
+
+  .addr {
+    grid-area: 5/1/6/3;
+  }
+
+  .checkbox {
+    grid-area: 7/1/8/3;
+  }
+
+  .register .error-message {
+    grid-area: 8/1/9/3;
+  }
+
+  .register button {
+    grid-area: 9/1/10/3;
+    width: 50%;
+    padding: .5em;
+    margin-top: 0;
+    position: relative;
+    top: -1em;
+  }
+
+  .register form p:last-child {
+    grid-area: 10/1/11/3;
+    position: relative;
+    top: -2em;
+    font-size: 1em;
+  }
+
+  .register label {
+    font-size: 1.1em;
+  }
+
+  .register input[type='text'], .register input[type='password'], .register input[type='tel'], .register input[type='email'] {
+    border-radius: 0;
+  }
+
+  .create-report > form > div, .edit-report > form > div {
+    padding: .5em;
+    border-radius: 9px;
+    width: 50%;
+    min-height: 150px;
+    margin-bottom: 1em;
+  }
+  
+  .create-report > form > div > div, .edit-report > form > div > div {
+    width: 130px;
+    height: 130px;
+  }
+}
