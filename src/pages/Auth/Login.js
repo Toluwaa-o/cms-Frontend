@@ -107,7 +107,7 @@ export default function Login() {
 
       <button disabled={ui.disable} style={{background: ui.color}} type="submit">{ui.text}</button>
       <p>Don't have an account? <Link to='/register'>Register</Link></p>
-      <Link style={{textAlign: 'center', fontSize: '.9em', color: '#689425', fontWeight: '700', marginTop: '.5em'}} to='/forgotten'>Forgotten password?</Link>
+      <Link style={{textAlign: 'center', fontSize: '.9em', color: '#689425', fontWeight: '700', marginTop: '.5em'}} to='/forgotten'>Change password?</Link>
     </form>
     </div>
   )

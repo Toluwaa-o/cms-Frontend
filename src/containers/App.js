@@ -15,7 +15,7 @@ import ExpandedReport, {reportData} from '../pages/Reports/ExpandedReport'
 import NoOfficerRoutes from "../components/RouteProtection/NoOfficerRoutes"
 import Error from '../pages/Error/Error'
 import User, {profileLoader} from "../pages/User/User"
-import Forgotten from "../pages/Auth/Forgotten"
+import Change from "../pages/Auth/Change"
 import Logout from "../pages/Auth/Logout"
 
 const router = createBrowserRouter(
@@ -23,7 +23,7 @@ const router = createBrowserRouter(
     <Route path='/' element={<Page />} errorElement={<Error />}>
       <Route path='register' element={<Register />} />
       <Route path='login' element={<Login />} />
-      <Route path='forgotten' element={<Forgotten />} />
+      <Route path='forgotten' element={<Change />} />
       <Route path='logout' element={<Logout />} />
       <Route path='cms' element={<UserRoutes><Main /></UserRoutes>} >
         <Route index element={<Reports />} />
