@@ -77,11 +77,10 @@ export default function Officers() {
         setShowDialogue(false)
         setSection('officers')
         dispatch(UserActions.clearId())
+        dispatch(UiActions.getMessage())
       })
       .catch(err => {
-        if(!err.response) return dispatch(UiActions.getMessage('Something went wrong, please try again!'))
-
-        dispatch(UiActions.getMessage(err.response.data.msg))
+        throw new Error('Something went wrong')
       })
     }else {
       instance({
@@ -92,11 +91,10 @@ export default function Officers() {
         setShowDialogue(false)
         setSection('officers')
         dispatch(UserActions.clearId())
+        dispatch(UiActions.getMessage())
       })
       .catch(err => {
-        if(!err.response) return dispatch(UiActions.getMessage('Something went wrong, please try again!'))
-
-        dispatch(UiActions.getMessage(err.response.data.msg))
+        throw new Error('Something went wrong')
       })
     }
   }
