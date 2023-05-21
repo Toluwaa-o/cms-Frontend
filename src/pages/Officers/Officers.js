@@ -176,7 +176,7 @@ export default function Officers() {
                       />
           })}
         </tbody>
-      </table>: <p style={{padding: '1em', textAlign: 'center', fontWeight: '700', color: 'var(--darkBlue)'}}>No Officers found :/</p> : <Loader /> : data ? data.length > 0 ? data.map(d => {
+      </table>: <p style={{padding: '1em', textAlign: 'center', fontWeight: '700', color: 'var(--darkBlue)'}}>No Officers found</p> : <Loader /> : data ? data.length > 0 ? data.map(d => {
         return <Unverified 
                       firstName={d.firstName} 
                       key={d._id} 
