@@ -45,12 +45,12 @@ export default function ExpandedReport() {
                         </div>
                     </span>
                 </div>
-                <div>
+                {report.data.report.response && <div>
                     <h2>Response Info</h2>
                     {report.data.report.response && <>
                      <p><span>Updated at:</span> {updateDay}{updateDay === 1 ? 'st' : updateDay === 2 ? 'nd' : updateDay === 3 ? 'rd' : 'th'}, {months[updateMonth]} {updateYear}, {updateCode} {updatePeriod}</p>
                     <p><span>Description:</span> {report.data.report.response}</p></>}
-                </div>
+                </div>}
                 {report.data.report.status !== 'responded' && userType !== 'officer' && <Link to='update' >Update Report</Link>}
             </> : <p style={{padding: '1em', textAlign: 'center', fontWeight: '700', color: 'var(--darkBlue)'}}>Something went wrong, please try again</p>}
         </div>

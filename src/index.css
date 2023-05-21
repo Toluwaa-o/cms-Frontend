@@ -654,6 +654,7 @@ main td a {
 
 .pagination > span {
   display: grid;
+  cursor: pointer;
   place-content: center;
   background: var(--darkBlue);
   fill: white;
@@ -804,6 +805,7 @@ main td a {
   text-align: center;
   padding: .3em 1em;
   font-weight: 700;
+  cursor: pointer;
   letter-spacing: 1px;
   border-radius: 5px;
   text-transform: uppercase;
@@ -868,6 +870,7 @@ main td a {
   display: flex;
   border: 1px solid gray;
   border-radius: 5px;
+  gap: .8em;
   min-height: 150px;
 }
 
@@ -881,9 +884,15 @@ main td a {
   position: absolute;
   top: -.5em;
   background: white;
+  cursor: pointer;
   border: 1px solid gray;
   border-radius: 50%;
   right: -.5em;
+}
+
+.create-report > form > div > div > img, .edit-report > form > div > div > img {
+  height: 100%;
+  width: 100%;
 }
 
 .create-report input[type='text'], .edit-report input[type='text'] {
@@ -973,6 +982,7 @@ main td a {
   width: 50%;
   margin: auto;
   padding: .3em;
+  cursor: pointer;
   border-radius: 5px;
 }
 
@@ -1504,7 +1514,7 @@ main td a {
   }
   
   .create-report > form > div > div, .edit-report > form > div > div {
-    width: 130px;
-    height: 130px;
+    width: 100px;
+    height: 80px;
   }
 }

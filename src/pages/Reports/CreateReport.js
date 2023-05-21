@@ -36,8 +36,6 @@ export default function CreateReport() {
     setUi(prev => ({...prev, disable: true}))
     const media = new FormData()
 
-    console.log(e.target.files[0])
-
     if(e.target.files[0].type.startsWith('image')) media.append('image', e.target.files[0])
     if(e.target.files[0].type.startsWith('video')) media.append('video', e.target.files[0])
 
@@ -92,11 +90,11 @@ export default function CreateReport() {
   }
 
   const imgRemove = (img) => {
-    const tempState = data.media
+    let tempState = data.media
     
-    const ind = tempState.indexOf(img)
-    
-    setData(prev => ({...prev, media: tempState.splice(ind, 1)}))
+    tempState = tempState.filter(image => image !== img)
+
+    setData(prev => ({...prev, media: tempState}))
   }
 
   return (
@@ -128,7 +126,7 @@ export default function CreateReport() {
         {data.media.length > 0 && <div className='forImage'>
           {data.media.length > 0 && data.media.map(img => {
             return (<div key={img}>
-              <span onClick={() => imgRemove(img)}>
+              <span role='button' onClick={() => imgRemove(img)}>
               <svg xmlns="http://www.w3.org/2000/svg" width="34" height="34" viewBox="0 0 24 24" style={{fill: 'red'}}><path d="m16.192 6.344-4.243 4.242-4.242-4.242-1.414 1.414L10.535 12l-4.242 4.242 1.414 1.414 4.242-4.242 4.243 4.242 1.414-1.414L13.364 12l4.242-4.242z"></path></svg>
               </span>
               <img src={img} alt='report' />
