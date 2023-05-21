@@ -154,7 +154,9 @@ header {
   align-items: center;
   justify-content: space-between;
   padding: 0 1em;
-  position: relative;
+  position: sticky;
+  top: 0;
+  left: 0;
   max-height: 12vh;
 }
 
