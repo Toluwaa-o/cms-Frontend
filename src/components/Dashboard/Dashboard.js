@@ -1,32 +1,14 @@
 import {NavLink} from 'react-router-dom'
 import Logo from '../../images/logo_transparent.png'
 import { useState } from 'react'
-import instance from '../Axios/Config'
-import { UserActions } from '../../stores/UserSlice'
-import { useDispatch, useSelector } from 'react-redux'
-import { useNavigate } from 'react-router'
+import { useSelector } from 'react-redux'
 
 export default function Dashboard() {
-    const dispatch = useDispatch()
-    const navigate = useNavigate()
     const user = useSelector(state => state.user.user.userType)
     const userId = useSelector(state => state.user.user)
     const myId = userId.userId ? userId.userId : userId._id
 
     const [showNav, setShowNav] = useState(false)
-
-    const logout = () => {
-        instance.delete('/auth/logout')
-        .then(() => {
-            setShowNav(false)
-            dispatch(UserActions.clearUser())
-            navigate('/login')
-        })
-        .catch(() => {
-            setShowNav(false)
-            navigate('/cms')
-        })
-    }
 
   return (
     <>
@@ -62,7 +44,7 @@ export default function Dashboard() {
                     </NavLink>
                 </li>
                 <li>
-                    <NavLink onClick={logout} to='/login'>
+                    <NavLink onClick={() => setShowNav(false)} to='/logout' end>
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" ><path d="M16 13v-2H7V8l-5 4 5 4v-3z"></path><path d="M20 3h-9c-1.103 0-2 .897-2 2v4h2V5h9v14h-9v-4H9v4c0 1.103.897 2 2 2h9c1.103 0 2-.897 2-2V5c0-1.103-.897-2-2-2z"></path></svg>
                         Logout
                     </NavLink>
