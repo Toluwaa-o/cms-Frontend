@@ -106,7 +106,7 @@ export default function Login() {
       <p className='error-message'>{errMsg}</p>
 
       <button disabled={ui.disable} style={{background: ui.color}} type="submit">{ui.text}</button>
-      <p>Don't have an account? <Link to='/register'>Register</Link></p>
+      <p style={{textAlign: 'center'}}>Don't have an account? <Link to='/register'>Register</Link></p>
       <Link style={{textAlign: 'center', fontSize: '.9em', color: '#689425', fontWeight: '700', marginTop: '.5em'}} to='/forgotten'>Change password?</Link>
     </form>
     </div>

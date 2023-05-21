@@ -113,12 +113,6 @@ export default function Officers() {
     setSearchParams(queryObject)
   }
 
-  let num = []
-  
-  for(let i = 1; i < Number(page.numOfPages + 1); i++){
-          num.push(i)
-      }
-
   return (
     <div className='officers'>
       <div className='officers-top'>
@@ -196,7 +190,21 @@ export default function Officers() {
                             confirm={confirmAction} 
                             />}
       <div className='pagination'>
-        {data && num.length > 1 && num.map(number => <p style={{background: page.uiPage === number ? 'var(--darkBlue)' : 'var(--lightBlue)'}} onClick={() => setPage(prev => ({...prev, currPage: number}))} key={number}>{number}</p>)}
+     <span onClick={() => {
+        if(page.currPage > 1 ){
+          setPage(prev => ({...prev, currPage: prev.currPage - 1}))
+        }
+      }} style={{background: page.currPage === 1 ? '#34495E70' : 'var(--darkBlue)'}}>
+      <svg style={{fill: page.currPage === 1 ? 'gray' : 'white'}} xmlns="http://www.w3.org/2000/svg" width="34" height="34" viewBox="0 0 24 24"><path d="M13.293 6.293 7.586 12l5.707 5.707 1.414-1.414L10.414 12l4.293-4.293z"></path></svg>
+     </span>
+      <p>Page {page.currPage} of {page.numOfPages}</p>
+      <span onClick={() => {
+        if(page.currPage < page.numOfPages){
+          setPage(prev => ({...prev, currPage: prev.currPage + 1}))
+        }
+      }} style={{background: page.currPage === page.numOfPages ? '#34495E70' : 'var(--darkBlue)'}}>
+        <svg style={{fill: page.currPage === page.numOfPages ? 'gray' : 'white'}} xmlns="http://www.w3.org/2000/svg" width="34" height="34" viewBox="0 0 24 24" ><path d="M10.707 17.707 16.414 12l-5.707-5.707-1.414 1.414L13.586 12l-4.293 4.293z"></path></svg>
+      </span>
       </div>
     </div>
   )

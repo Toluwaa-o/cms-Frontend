@@ -157,7 +157,9 @@ export default function EditReport() {
         {data.media.length > 0 && <div className='forImage'>
           {data.media.length > 0 && data.media.map(img => {
             return (<div key={img}>
-              <svg onClick={() => imgRemove(img)} xmlns="http://www.w3.org/2000/svg" width="34" height="34" viewBox="0 0 24 24" style={{fill: 'red'}}><path d="m16.192 6.344-4.243 4.242-4.242-4.242-1.414 1.414L10.535 12l-4.242 4.242 1.414 1.414 4.242-4.242 4.243 4.242 1.414-1.414L13.364 12l4.242-4.242z"></path></svg>
+              <span onClick={() => imgRemove(img)}>
+              <svg xmlns="http://www.w3.org/2000/svg" width="34" height="34" viewBox="0 0 24 24" style={{fill: 'red'}}><path d="m16.192 6.344-4.243 4.242-4.242-4.242-1.414 1.414L10.535 12l-4.242 4.242 1.414 1.414 4.242-4.242 4.243 4.242 1.414-1.414L13.364 12l4.242-4.242z"></path></svg>
+              </span>
               <img src={img} alt='report' />
             </div>)
           })}

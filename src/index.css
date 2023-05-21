@@ -410,6 +410,7 @@ header a {
 .unverified p {
   font-weight: 700;
   color: gray;
+  font-size: .9em;
 }
 
 .unverified > div:last-child {
@@ -643,18 +644,19 @@ main td a {
 
 .pagination {
   display: flex;
+  align-items: center;
   justify-content: center;
   gap: 1em;
-  color: white;
+  color: var(--darkBlue);
   margin-block: 1.5em 1em;
+  font-weight: 700;
 }
 
-.pagination > p {
-  width: 30px;
-  height: 30px;
+.pagination > span {
   display: grid;
   place-content: center;
-  border-radius: 5px;
+  background: var(--darkBlue);
+  fill: white;
 }
 
 .expanded-report, .officer {
@@ -875,10 +877,13 @@ main td a {
   height: 80px;
 }
 
-.create-report > form > div > div > svg, .edit-report > form > div > div > svg {
+.create-report > form > div > div > span, .edit-report > form > div > div > span {
   position: absolute;
-  top: 0;
-  right: 0;
+  top: -.5em;
+  background: white;
+  border: 1px solid gray;
+  border-radius: 50%;
+  right: -.5em;
 }
 
 .create-report input[type='text'], .edit-report input[type='text'] {
