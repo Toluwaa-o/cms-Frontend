@@ -14,30 +14,36 @@ export default function Page() {
   const location = useLocation()
 
   const message = useSelector(state => state.ui.message)
-  const user = useSelector(state => state.user.user)
+  // const user = useSelector(state => state.user.user)
 
-  useEffect(() => {
-    instance({
-      url: '/users/show-current-user',
-      method: 'get'
-    })
-    .then(res => {
-      dispatch(UserActions.getUser(res.data.user))
-    })
-    .catch(() => {
-        console.log('not logged in')
-        return navigate('/login')
-    })
+  // useEffect(() => {
+  //   instance({
+  //     url: '/users/show-current-user',
+  //     method: 'get'
+  //   })
+  //   .then(res => {
+  //     dispatch(UserActions.getUser(res.data.user))
+  //   })
+  //   .catch(() => {
+  //       console.log('not logged in')
+  //       return navigate('/login')
+  //   })
 
-  }, [])
+  // }, [])
 
   useEffect(() => {
     if(location.pathname === '/'){
-      if(user) {
-        return navigate('/cms')
-      }else {
-        return navigate('/login')
-      }
+      instance({
+        url: '/users/show-current-user',
+        method: 'get'
+      })
+      .then(res => {
+        dispatch(UserActions.getUser(res.data.user))
+      })
+      .catch(() => {
+          console.log('not logged in')
+          return navigate('/login')
+      })
     }
   }, [])
 
