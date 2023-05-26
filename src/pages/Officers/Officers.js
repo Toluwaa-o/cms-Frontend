@@ -75,6 +75,11 @@ export default function Officers() {
       })
       .then(() => {
         setShowDialogue(false)
+        setPage({
+          currPage: 1,
+          uiPage: 1,
+          numOfPages: 1
+        })
         setSection('officers')
         dispatch(UserActions.clearId())
         dispatch(UiActions.getMessage())
@@ -89,6 +94,11 @@ export default function Officers() {
       })
       .then(() => {
         setShowDialogue(false)
+        setPage({
+          currPage: 1,
+          uiPage: 1,
+          numOfPages: 1
+        })
         setSection('officers')
         dispatch(UserActions.clearId())
         dispatch(UiActions.getMessage())
