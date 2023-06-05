@@ -1,12 +1,14 @@
 import { useNavigate } from "react-router";
 import { useEffect } from "react";
 import instance from "../Axios/Config";
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { UserActions } from "../../stores/UserSlice";
 
 export default function UserRoutes(props) {
   const navigate = useNavigate();
   const dispatch = useDispatch()
+
+  const user = useSelector(state => state.user.user)
 
   useEffect(() => {
     instance({
@@ -22,5 +24,5 @@ export default function UserRoutes(props) {
       });
   }, []);
 
-  return <>{props.children}</>;
+  return <>{user && props.children}</>;
 }

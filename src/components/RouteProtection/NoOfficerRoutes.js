@@ -1,12 +1,15 @@
 import { useNavigate } from "react-router";
 import { useEffect } from "react";
 import instance from "../Axios/Config";
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { UserActions } from "../../stores/UserSlice";
 
 export default function NoOfficerRoutes(props) {
   const navigate = useNavigate();
   const dispatch = useDispatch()
+
+  const userType = useSelector(state => state.user.user.userType)
+
 
   useEffect(() => {
     instance({
@@ -22,5 +25,5 @@ export default function NoOfficerRoutes(props) {
       });
   }, []);
 
-  return <>{props.children}</>;
+  return <>{userType !== 'officer' && props.children}</>;
 }
