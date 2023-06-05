@@ -160,7 +160,7 @@ export default function CreateReport() {
           placeholder="Describe the crime"
         ></textarea>
 
-        <label htmlFor="media">Add any related Videos/Images</label>
+        <label htmlFor="media">Add any related Images</label>
         <input onChange={fileUpload} type="file" name="media" id="media" />
         {data.media.length > 0 && (
           <div className="forImage">
