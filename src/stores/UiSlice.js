@@ -1,19 +1,19 @@
-import { createSlice } from '@reduxjs/toolkit'
+import { createSlice } from "@reduxjs/toolkit";
 
 const UiSlice = createSlice({
-    name: 'ui',
-    initialState: {
-        message: false
+  name: "ui",
+  initialState: {
+    message: false,
+  },
+  reducers: {
+    getMessage(state, action) {
+      state.message = true;
     },
-    reducers: {
-        getMessage(state, action){
-            state.message = true
-        },
-        clearMessage(state){
-            state.message = false
-        }
-    }
-})
+    clearMessage(state) {
+      state.message = false;
+    },
+  },
+});
 
-export const UiActions = UiSlice.actions
-export default UiSlice
+export const UiActions = UiSlice.actions;
+export default UiSlice;

@@ -1,5 +1,4 @@
 import { useLoaderData } from "react-router";
-// import Loader from '../../components/UI/Loader'
 import { Link } from "react-router-dom";
 import instance from "../../components/Axios/Config";
 import { useSelector } from "react-redux";

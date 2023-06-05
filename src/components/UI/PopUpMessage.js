@@ -1,4 +1,4 @@
-export default function ErrorMessage() {
+export default function Message() {
   return (
     <div className='popup'>
       <span>
