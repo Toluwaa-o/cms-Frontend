@@ -18,7 +18,13 @@ export default function Page() {
   const message = useSelector((state) => state.ui.message);
 
   useEffect(() => {
-    if (location.pathname === "/" || location.pathname === "/login" || location.pathname === "/register" || location.pathname === "/forgotten") return setRender(true);
+    if (
+      location.pathname === "/" ||
+      location.pathname === "/login" ||
+      location.pathname === "/register" ||
+      location.pathname === "/forgotten"
+    )
+      return setRender(true);
 
     instance({
       url: "/users/show-current-user",
@@ -29,6 +35,7 @@ export default function Page() {
         setRender(true);
       })
       .catch(() => {
+        setRender(true);
         return navigate("/login");
       });
   }, []);
