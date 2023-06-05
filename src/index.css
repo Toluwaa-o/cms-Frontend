@@ -148,6 +148,37 @@ body {
   font-family: 'Inter', sans-serif;
 }
 
+.homepage {
+  background: linear-gradient(to bottom, var(--darkBlue), var(--lightBlue));
+  color: white;
+  padding: 1em 1.5em;
+  min-height: 100vh;
+  text-align: center;
+}
+
+.homepage img {
+  width: 70%;
+  margin: auto;
+}
+
+.homepage a {
+  background: white;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-weight: 800;
+  padding: 0.4em 2.5em;
+  border-radius: 5px;
+  color: var(--darkBlue);
+
+}
+
+.homepage span {
+  display: flex;
+  margin-top: 4em;
+  gap: 1em;
+  justify-content: center;
+}
+
 header {
   display: flex;
   background: var(--darkBlue);
@@ -1108,6 +1139,39 @@ main td a {
 }
 
 @media (min-width: 768px) {
+  .homepage {
+    display: grid;
+    grid-template-columns: 55% 45%;
+    align-items: center;
+    font-size: 1.3em;
+  }
+  
+  .homepage img {
+    width: 70%;
+  }
+
+  /* .homepage p {
+    width: 80%;
+  } */
+
+  .homepage div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 90%;
+    gap: 2em;
+  }
+  
+  .homepage a {
+    padding: 0.5em 3em;
+    font-size: 1.1em;
+  }
+  
+  .homepage span {
+    margin-top: unset;
+  }
+
   .main {
     display: grid;
     min-height: 100vh;

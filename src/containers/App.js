@@ -17,10 +17,12 @@ import Error from '../pages/Error/Error'
 import User, {profileLoader} from "../pages/User/User"
 import Change from "../pages/Auth/Change"
 import Logout from "../pages/Auth/Logout"
+import Home from "../pages/Home"
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path='/' element={<Page />} errorElement={<Error />}>
+      <Route index element={<Home/>} />
       <Route path='register' element={<Register />} />
       <Route path='login' element={<Login />} />
       <Route path='forgotten' element={<Change />} />

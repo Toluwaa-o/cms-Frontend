@@ -1,18 +1,26 @@
-import { useSelector } from "react-redux/es/exports"
-import { useNavigate } from "react-router"
-import { useEffect } from 'react'
+import { useNavigate } from "react-router";
+import { useEffect } from "react";
+import instance from "../Axios/Config";
+import { useDispatch } from 'react-redux'
+import { UserActions } from "../../stores/UserSlice";
 
 export default function AdminRoutes(props) {
-    const navigate = useNavigate()
-    const user = useSelector(state => state.user.user.userType)
+  const navigate = useNavigate();
+  const dispatch = useDispatch()
 
-    useEffect(() => {
-      if(user !== 'admin') navigate('/cms')
-    }, [])
+  useEffect(() => {
+    instance({
+      url: "/users/show-current-user",
+      method: "get",
+    })
+      .then((res) => {
+        dispatch(UserActions.getUser(res.data.user))
+        if (res.data.user.userType !== "admin") return navigate("/cms");
+      })
+      .catch(() => {
+        return navigate("/cms");
+      });
+  }, []);
 
-  return (
-    <>
-    {user === 'admin' && props.children}
-    </>
-  )
+  return <>{props.children}</>;
 }
