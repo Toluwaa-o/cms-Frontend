@@ -7,11 +7,13 @@ import { UserActions } from "../stores/UserSlice";
 import instance from "../components/Axios/Config";
 import Loading from "../components/UI/Loader";
 import { useLocation } from "react-router";
+import { useNavigate } from "react-router";
 
 export default function Page() {
   const dispatch = useDispatch();
   const [render, setRender] = useState(false);
   const location = useLocation();
+  const navigate = useNavigate();
 
   const message = useSelector((state) => state.ui.message);
 
@@ -27,7 +29,7 @@ export default function Page() {
         setRender(true);
       })
       .catch(() => {
-        console.log("not logged in");
+        return navigate("/login");
       });
   }, []);
 
