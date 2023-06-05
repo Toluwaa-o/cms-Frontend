@@ -1,28 +1,33 @@
 import { useNavigate } from "react-router";
 import { useEffect } from "react";
 import instance from "../Axios/Config";
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch, useSelector } from "react-redux";
 import { UserActions } from "../../stores/UserSlice";
 
 export default function AdminRoutes(props) {
   const navigate = useNavigate();
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
 
-  const userType = useSelector(state => state.user.user.userType)
+  const user = useSelector((state) => state.user.user);
 
   useEffect(() => {
-    instance({
-      url: "/users/show-current-user",
-      method: "get",
-    })
-      .then((res) => {
-        dispatch(UserActions.getUser(res.data.user))
-        if (res.data.user.userType !== "admin") return navigate("/cms");
+    if (user) {
+      if (user.userType !== "admin") return navigate("/cms");
+      else return;
+    } else {
+      instance({
+        url: "/users/show-current-user",
+        method: "get",
       })
-      .catch(() => {
-        return navigate("/cms");
-      });
+        .then((res) => {
+          dispatch(UserActions.getUser(res.data.user));
+          if (res.data.user.userType !== "admin") return navigate("/cms");
+        })
+        .catch(() => {
+          return navigate("/cms");
+        });
+    }
   }, []);
 
-  return <>{userType === 'admin' && props.children}</>;
+  return <>{user.userType === "admin" && props.children}</>;
 }
