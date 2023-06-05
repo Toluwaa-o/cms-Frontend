@@ -63,10 +63,12 @@ export default function ExpandedReport() {
             </p>
             <p>
               <span>Created By:</span> {report.data.report.createdBy.firstName}{" "}
-              {report.data.report.createdBy.lastName} /{" "}
-              {userType !== 'civilian' && <a style={{ textDecoration: "none" }} href={link}>
-                Call: {report.data.report.createdBy.contact}
-              </a>}
+              {report.data.report.createdBy.lastName}
+              {userType !== "civilian" && (
+                <a style={{ textDecoration: "none" }} href={link}>
+                  / Call: {report.data.report.createdBy.contact}
+                </a>
+              )}
             </p>
             <p>
               <span>Location:</span> {report.data.report.location}
