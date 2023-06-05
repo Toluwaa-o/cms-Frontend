@@ -23,6 +23,8 @@ export default function ExpandedReport() {
     const updateTime = update.getTime()
     const updateCode = new Date(updateTime).toISOString().slice(11, 16)
     const updatePeriod = Number(updateCode.slice(0, 2)) < 12 ? 'AM' : 'PM'
+
+    const link = `tel:${report.data.report.createdBy.contact}`
     return (
         <div className='expanded-report'>
             <Link to='/cms'>Back</Link>
@@ -32,7 +34,7 @@ export default function ExpandedReport() {
                     <p><span>Title:</span> {report.data.report.title}</p>
                     <p><span>Reported at:</span> {day}{day === 1 ? 'st' : day === 2 ? 'nd' : day === 3 ? 'rd' : 'th'}, {months[month]} {year}, {timeCode} {period}</p>
                     <p><span>Category:</span> {report.data.report.category}</p>
-                    <p><span>Created By:</span> {report.data.report.createdBy.firstName} {report.data.report.createdBy.lastName}</p>
+                    <p><span>Created By:</span> {report.data.report.createdBy.firstName} {report.data.report.createdBy.lastName} / <a style={{textDecoration: 'none'}} href={link}>Call: {report.data.report.createdBy.contact}</a></p>
                     <p><span>Location:</span> {report.data.report.location}</p>
                     <p style={{color: report.data.report.status === 'pending' ? '#d66a6a' : report.data.report.status === 'active' ? '#e9b949' : '#647acb', textTransform: 'capitalize', fontWeight: '700'}}><span>Status:</span> {report.data.report.status}</p>
                 </div>
