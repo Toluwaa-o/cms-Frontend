@@ -15,7 +15,7 @@ export default function OfficerRoutes(props) {
     })
       .then((res) => {
         dispatch(UserActions.getUser(res.data.user))
-        if (res.data.user.userType === "user") return navigate("/cms");
+        if (res.data.user.userType === "civilian") return navigate("/cms");
       })
       .catch(() => {
         return navigate("/cms");
