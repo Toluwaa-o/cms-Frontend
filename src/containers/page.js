@@ -16,6 +16,7 @@ export default function Page() {
   const navigate = useNavigate();
 
   const message = useSelector((state) => state.ui.message);
+  const user = useSelector(state => state.user.user)
 
   useEffect(() => {
     if (
@@ -26,18 +27,22 @@ export default function Page() {
     )
       return setRender(true);
 
-    instance({
-      url: "/users/show-current-user",
-      method: "get",
-    })
-      .then((res) => {
-        dispatch(UserActions.getUser(res.data.user));
-        setRender(true);
+    if(!user){
+      instance({
+        url: "/users/show-current-user",
+        method: "get",
       })
-      .catch(() => {
-        setRender(true);
-        return navigate("/login");
-      });
+        .then((res) => {
+          dispatch(UserActions.getUser(res.data.user));
+          setRender(true);
+        })
+        .catch(() => {
+          setRender(true);
+          return navigate("/login");
+        });
+    }else {
+      setRender(true);
+    }
   }, []);
 
   useEffect(() => {

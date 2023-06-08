@@ -180,11 +180,11 @@ export default function Reports() {
           <title />
           <g data-name="Layer 2" id="Layer_2">
             <path
-              class="cls-1"
+              className="cls-1"
               d="M16.47,16.88,26.34,7a1,1,0,0,0-1.41-1.41l-9.06,9.06-8.8-8.8a1,1,0,0,0-1.41,0h0a1,1,0,0,0,0,1.42l9.61,9.61A.85.85,0,0,0,16.47,16.88Z"
             />
             <path
-              class="cls-1"
+              className="cls-1"
               d="M16.47,26.46l9.87-9.88a1,1,0,0,0-1.41-1.41l-9.06,9.06-8.8-8.8a1,1,0,0,0-1.41,0h0a1,1,0,0,0,0,1.41l9.61,9.62A.85.85,0,0,0,16.47,26.46Z"
             />
           </g>
@@ -216,11 +216,13 @@ export default function Reports() {
         data.length > 0 ? (
           <table>
             <thead>
-              <th>Title</th>
-              <th>Description</th>
-              <th>Category</th>
-              <th>Status</th>
-              <th>Location</th>
+              <tr>
+                <th>Title</th>
+                <th>Description</th>
+                <th>Category</th>
+                <th>Status</th>
+                <th>Location</th>
+              </tr>
             </thead>
 
             <tbody>

@@ -204,11 +204,13 @@ export default function Officers() {
           data.length > 0 ? (
             <table>
               <thead>
+                <tr>
                 <th>First Name</th>
                 <th>Last Name</th>
                 <th>Email Address</th>
                 <th>Phone Number</th>
                 <th>Location</th>
+                </tr>
               </thead>
 
               <tbody>
